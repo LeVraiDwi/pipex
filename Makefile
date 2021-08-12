@@ -2,15 +2,10 @@ SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 UNAME_S = $(shell uname -s)
 
-ifeq ($(UNAME_S),Linux)
-	CFLAGS := -Wall -Wextra -Werror -fPIE
-else
-	CFLAGS := -Wall -Wextra -Werror
-endif
-
 SRC_PATH = ./src
 
-SRC_NAME =	main.c path.c\
+SRC_NAME =	main.c path.c struct.c\
+			check.c error.c\
 
 LIBFT = ./libft/libft.a
 
@@ -18,9 +13,9 @@ OBJS = ${SRCS:.c=.o}
 
 NAME = pipex
 
-HEADER = -I "./include" -I"./libft"
+FLAGS = -Wall -Wextra -Werror -no-pie
 
-FLAGS = -Wall -Werror -Wextra
+HEADER = -I "./include" -I"./libft"
 
 DEBUG = -g -std=c11 -fsanitize=address
 
