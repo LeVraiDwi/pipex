@@ -5,7 +5,8 @@ UNAME_S = $(shell uname -s)
 SRC_PATH = ./src
 
 SRC_NAME =	main.c path.c struct.c\
-			check.c error.c\
+			check.c error.c exec.c\
+			file.c\
 
 LIBFT = ./libft/libft.a
 

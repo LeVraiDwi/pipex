@@ -3,7 +3,7 @@
 int	ft_is_path(char *str)
 {
 	if (str[0] == 'P' && str[1] == 'A' && str[2] == 'T'
-			&& str[3] == 'H' && str[4] == '=')
+		&& str[3] == 'H' && str[4] == '=')
 		return (1);
 	return (0);
 }

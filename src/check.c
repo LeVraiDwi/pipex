@@ -21,3 +21,10 @@ int	ft_is_exec(t_path *path, char **cmd, char *argv)
 	}
 	return (0);
 }
+
+int	ft_is_file(t_path *path, char *argv, int mod)
+{
+	if (!access(argv, mod))
+		return (1);
+	return (ft_error(5, path));
+}

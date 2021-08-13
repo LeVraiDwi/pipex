@@ -2,21 +2,21 @@
 
 int	ft_init_struct(char **envp, char **argv, t_path *path)
 {
-	
 	path->cmdarg1 = 0;
 	path->cmdarg2 = 0;
 	path->mypath = 0;
 	path->cmd1 = 0;
 	path->cmd2 = 0;
 	path->shell = 0;
+	path->envp = envp;
 	if (!ft_find_shell(path, envp))
 		return (ft_error(3, path));
-	if(!ft_find_path(envp, path))
+	if (!ft_find_path(envp, path))
 		return (ft_error(3, path));
 	path->cmdarg1 = ft_split(argv[2], ' ');
 	path->cmdarg2 = ft_split(argv[3], ' ');
 	if (!path->cmdarg1 || !path->cmdarg2)
-		return (3);
+		return (ft_error(3, path));
 	if (!ft_is_exec(path, &path->cmd1, path->cmdarg1[0]))
 		return (ft_error(1, path));
 	if (!ft_is_exec(path, &path->cmd2, path->cmdarg2[0]))
@@ -24,7 +24,7 @@ int	ft_init_struct(char **envp, char **argv, t_path *path)
 	return (1);
 }
 
-void ft_free_lst(char **lst)
+void	ft_free_lst(char **lst)
 {
 	int	i;
 
