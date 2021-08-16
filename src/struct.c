@@ -13,14 +13,14 @@ int	ft_init_struct(char **envp, char **argv, t_path *path)
 		return (ft_error(3, path));
 	if (!ft_find_path(envp, path))
 		return (ft_error(3, path));
-	path->cmdarg1 = ft_split(argv[2], ' ');
-	path->cmdarg2 = ft_split(argv[3], ' ');
-	if (!path->cmdarg1 || !path->cmdarg2)
-		return (ft_error(3, path));
-	if (!ft_is_exec(path, &path->cmd1, path->cmdarg1[0]))
-		return (ft_error(1, path));
-	if (!ft_is_exec(path, &path->cmd2, path->cmdarg2[0]))
-		return (ft_error(2, path));
+	if (!ft_make_cmd(path, argv))
+		return (0);
+	if (path->cmdarg1 != 0)
+		if (!ft_is_exec(path, &path->cmd1, path->cmdarg1[0]))
+			return (ft_error(1, path));
+	if (path->cmdarg2 != 0)
+		if (!ft_is_exec(path, &path->cmd2, path->cmdarg2[0]))
+			return (ft_error(2, path));
 	return (1);
 }
 

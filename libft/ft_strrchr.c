@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *flag;
+	char	*flag;
 
 	flag = 0;
 	if (c == '\0')

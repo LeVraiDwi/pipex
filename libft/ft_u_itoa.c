@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	u_int_str(char *str, unsigned int  n)
+void	u_int_str(char *str, unsigned int n)
 {
 	*str-- = ((n % 10) + '0');
 	n = n / 10;
@@ -23,9 +23,9 @@ void	u_int_str(char *str, unsigned int  n)
 	}
 }
 
-unsigned int		size_u_num(unsigned int n)
+unsigned int	size_u_num(unsigned int n)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	if (n == 0)
@@ -40,11 +40,12 @@ unsigned int		size_u_num(unsigned int n)
 
 char	*ft_u_itoa(unsigned int n)
 {
-	unsigned int		l;
-	char	*str;
+	unsigned int	l;
+	char			*str;
 
 	l = size_u_num(n);
-	if (!(str = (char *)malloc(sizeof(char) * (l + 1))))
+	str = (char *)malloc(sizeof(char) * (l + 1));
+	if (!str)
 		return (NULL);
 	u_int_str(str + l - 1, n);
 	str[l] = '\0';

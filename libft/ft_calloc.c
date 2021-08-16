@@ -18,7 +18,8 @@ void	*ft_calloc(unsigned int nmemb, size_t size)
 	int		count;
 
 	count = nmemb * size;
-	if (!(alloc = malloc(count)))
+	alloc = malloc(count);
+	if (!alloc)
 		return (0);
 	ft_bzero(alloc, count);
 	return (alloc);

@@ -11,6 +11,7 @@
 # include "libft.h"
 # define STDIN_FILENO 0
 # define STDOUT_FILENO 1
+# define BUFFER_SIZE 30
 
 # include <stdlib.h>
 
@@ -47,4 +48,8 @@ int		ft_open_file(int *fd1, int *fd2, t_path *path, char **argv);
 //execv.c
 int		ft_child1(t_path *path, int fd, int pipefd[]);
 int		ft_child2(t_path *path, int child, int fd, int pipefd[]);
+int		ft_write(int fd1, int fd2);
+int		ft_cmd2_write(t_path *path, int fd, int pipefd[]);
+//cmd.c
+int		ft_make_cmd(t_path *path, char **argv);
 #endif

@@ -37,6 +37,8 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 		return (ft_error(4, &path));
+	if (*argv[4] == 0 && *argv[1] == 0)
+		return (ft_error(6, &path));
 	if (!ft_init_struct(envp, argv, &path))
 		return (ft_free_struct(&path));
 	if (!ft_open_file(&fd1, &fd2, &path, argv))

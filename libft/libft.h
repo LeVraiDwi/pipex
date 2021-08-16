@@ -15,13 +15,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-long int		ft_atoi(const char *str);
+int				ft_atoi(const char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
@@ -64,7 +64,7 @@ void			ft_lstadd_front(t_list **alst, t_list *new);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-				void (*del)(void *));
+					void (*del)(void *));
 char			*ft_strnstr(const char *big, const char *little,
-				size_t l);
+					size_t l);
 #endif

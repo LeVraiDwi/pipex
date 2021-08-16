@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	if (!(new = (struct s_list *)malloc(sizeof(struct s_list))))
+	new = (struct s_list *)malloc(sizeof(struct s_list));
+	if (!new)
 		return (0);
 	new->content = content;
 	new->next = 0;

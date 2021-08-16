@@ -23,9 +23,9 @@ void	int_str(char *str, long n)
 	}
 }
 
-int		size_num(long n)
+int	size_num(long n)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	if (n == 0)
@@ -48,15 +48,16 @@ char	*ft_itoa(int n)
 	l = size_num(i);
 	if (i < 0)
 	{
-		if (!(str = (char *)malloc(sizeof(char) * (l + 2))))
+		str = (char *)malloc(sizeof(char) * (l + 2));
+		if (!str)
 			return (NULL);
 		i = i * (-1);
-		*str = '-';
-		str++;
+		*str++ = '-';
 	}
 	else
 	{
-		if (!(str = (char *)malloc(sizeof(char) * (l + 1))))
+		str = (char *)malloc(sizeof(char) * (l + 1));
+		if (!str)
 			return (NULL);
 	}
 	int_str(str + l - 1, i);

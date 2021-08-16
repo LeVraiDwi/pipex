@@ -49,5 +49,7 @@ int	ft_error(int c_error, t_path *path)
 		write(2, "error:\nla fonction doit avoir 4 argument\n", 42);
 	else if (c_error == 5)
 		perror(path->shell);
+	else if (c_error == 6)
+		write(2, "zsh: aucun fichier ou dossier de ce type:\n", 42);
 	return (0);
 }
