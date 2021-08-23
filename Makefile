@@ -14,24 +14,24 @@ OBJS = ${SRCS:.c=.o}
 
 NAME = pipex
 
-FLAGS = -Wall -Wextra -Werror -no-pie
+FLAGS = -Wall -Wextra -Werror
 
 HEADER = -I "./include" -I"./libft"
 
 DEBUG = -g -std=c11 -fsanitize=address
 
-CC = gcc
+CC = clang
 
 RM = rm -f
 
 CD = cd
 
 .c.o:
-			${CC} ${FLAGS} ${HEADER} -c $< -o $@ ${DEBUG}
+			${CC} ${FLAGS} ${HEADER} -c $< -o $@
 
 ${NAME}:	${OBJS}
 			cd libft; make;
-			${CC} -o ${NAME} ${OBJS} ${FLAGS} ${LIBFT} ${DEBUG}
+			${CC} -o ${NAME} ${OBJS} ${FLAGS} ${LIBFT}
 
 all:		${NAME}
 

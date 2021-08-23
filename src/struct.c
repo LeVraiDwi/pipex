@@ -7,10 +7,7 @@ int	ft_init_struct(char **envp, char **argv, t_path *path)
 	path->mypath = 0;
 	path->cmd1 = 0;
 	path->cmd2 = 0;
-	path->shell = 0;
 	path->envp = envp;
-	if (!ft_find_shell(path, envp))
-		return (ft_error(3, path));
 	if (!ft_find_path(envp, path))
 		return (ft_error(3, path));
 	if (!ft_make_cmd(path, argv))
@@ -49,7 +46,5 @@ int	ft_free_struct(t_path *path)
 		free(path->cmd1);
 	if (path->cmd2)
 		free(path->cmd2);
-	if (path->shell)
-		free(path->shell);
 	return (0);
 }

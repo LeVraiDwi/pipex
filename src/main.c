@@ -1,5 +1,11 @@
 #include "pipex.h"
 
+void	ft_close(int fd1, int fd2)
+{
+	close(fd1);
+	close(fd2);
+}
+
 int	pipex(int fd1, int fd2, t_path *path)
 {
 	int	status;
@@ -20,12 +26,12 @@ int	pipex(int fd1, int fd2, t_path *path)
 		return (ft_error(5, path));
 	else if (child2 == 0)
 		ft_child2(path, child1, fd2, pipefd);
-	close(pipefd[0]);
-	close(pipefd[1]);
+	ft_close(pipefd[0], pipefd[1]);
 	if (waitpid(-1, &status, 0) < 0)
 		exit(EXIT_FAILURE);
 	if (waitpid(-1, &status, 0) < 0)
 		exit(EXIT_FAILURE);
+	ft_free_struct(path);
 	exit(EXIT_SUCCESS);
 }
 

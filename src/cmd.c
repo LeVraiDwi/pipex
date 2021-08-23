@@ -9,7 +9,7 @@ int	ft_make_cmd(t_path *path, char **argv)
 			return (ft_error(3, path));
 	}
 	else
-		path->cmdarg1 = 0;
+		return (ft_error(7, path));
 	if (argv[3] && *argv[3])
 	{
 		path->cmdarg2 = ft_split(argv[3], ' ');
@@ -17,6 +17,6 @@ int	ft_make_cmd(t_path *path, char **argv)
 			return (ft_error(3, path));
 	}
 	else
-		path->cmdarg2 = 0;
+		return (ft_error(8, path));
 	return (1);
 }
