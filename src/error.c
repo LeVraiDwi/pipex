@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/24 14:52:17 by tcosse            #+#    #+#             */
+/*   Updated: 2021/08/24 14:52:18 by tcosse           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 
 void	ft_error_cmd_nfound(t_path *path, int cmd)
@@ -17,12 +29,16 @@ int	ft_error(int c_error, t_path *path)
 	else if (c_error == 4)
 		printf("pipex: la fonction doit avoir 4 argument\n");
 	else if (c_error == 5)
-		perror(STR_ERR);
+		perror("pipex");
 	else if (c_error == 6)
 		printf("pipex: aucun fichier ou dossier de ce type\n");
 	else if (c_error == 7)
 		printf("pipex: command not found: \"\"\n");
 	else if (c_error == 8)
 		printf("pipex: command not found: \"\"\n");
+	else if (c_error == 9)
+		printf("pipex: fichier identique\n");
+	else if (c_error == 10)
+		printf("pipex: impossible d'ouvrir le fichier\n");
 	return (0);
 }
