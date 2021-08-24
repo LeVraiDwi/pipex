@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 14:52:31 by tcosse            #+#    #+#             */
-/*   Updated: 2021/08/24 14:52:32 by tcosse           ###   ########.fr       */
+/*   Updated: 2021/08/24 15:00:42 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_open_file(int *fd1, int *fd2, t_path *path, char **argv)
 	*fd1 = open(argv[1], O_RDONLY);
 	if (!*fd1)
 		return (ft_error(10, path));
-	if(!access(argv[4], F_OK))
+	if (!access(argv[4], F_OK))
 		if (!ft_is_file(path, argv[4], F_OK | R_OK | W_OK))
 			return (ft_error(10, path));
 	*fd2 = open(argv[4], O_CREAT | O_TRUNC | O_RDWR,
